@@ -40,6 +40,7 @@ const bakedTexture = textureLoader.load('baked.jpg')
 console.log(bakedTexture)
 bakedTexture.flipY = false
 
+
 /**
  * Materials
  */
