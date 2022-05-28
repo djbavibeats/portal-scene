@@ -6,12 +6,20 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js'
 
 /**
+ * Spector JS
+ */
+// const SPECTOR = require('spectorjs')
+// const spector = new SPECTOR.Spector()
+// spector.displayUI()
+
+
+/**
  * Base
  */
 // Debug
-const gui = new dat.GUI({
-    width: 400
-})
+// const gui = new dat.GUI({
+//     width: 400
+// })
 
 // Canvas
 const canvas = document.querySelector('canvas.webgl')
@@ -51,7 +59,7 @@ const bakedMaterial = new THREE.MeshBasicMaterial({ map: bakedTexture })
 const portalLightMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff })
 
 // Pole light material
-const poleLightMaterial = new THREE.MeshBasicMaterial({ color: 0xaa99dd })
+const poleLightMaterial = new THREE.MeshBasicMaterial({ color: 0xbb99aa })
 
 /**
  * Model
@@ -59,14 +67,12 @@ const poleLightMaterial = new THREE.MeshBasicMaterial({ color: 0xaa99dd })
 gltfLoader.load(
     'portal.glb',
     (gltf) => {
-        gltf.scene.traverse((child) => {
-            child.material = bakedMaterial
-        })
-        
+        const bakedMesh = gltf.scene.children.find(child => child.name === 'baked')
         const portalLightMesh = gltf.scene.children.find(child => child.name === 'portalLight')
         const poleLightAMesh = gltf.scene.children.find(child => child.name === 'poleLightA')
         const poleLightBMesh = gltf.scene.children.find(child => child.name === 'poleLightB')
 
+        bakedMesh.material = bakedMaterial
         poleLightAMesh.material = poleLightMaterial
         poleLightBMesh.material = poleLightMaterial
         portalLightMesh.material = portalLightMaterial
