@@ -51,7 +51,7 @@ const bakedMaterial = new THREE.MeshBasicMaterial({ map: bakedTexture })
 const portalLightMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff })
 
 // Pole light material
-const poleLightMaterial = new THREE.MeshBasicMaterial({ color: 0xfffcff })
+const poleLightMaterial = new THREE.MeshBasicMaterial({ color: 0xaa99dd })
 
 /**
  * Model
